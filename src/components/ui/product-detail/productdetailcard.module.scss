@@ -1,0 +1,85 @@
+@import "../../../variables.scss";
+
+.productDetailCard {
+  // width: 100%;
+  height: 100%;
+  position: relative;
+
+  &__wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    // padding: 1.6rem;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    gap: 4.7rem;
+  }
+
+  &__image {
+    width: 19rem;
+    height: 18rem;
+    overflow: hidden;
+    position: relative;
+    margin-left: 1.6rem;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 1.6rem;
+      object-fit: cover;
+    }
+  }
+
+  &__hr {
+    height: 30.2rem;
+    width: 1.5px;
+    background-color: #8e8e93;
+  }
+
+  &__info {
+    width: 45.2rem;
+    height: 27.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__rating {
+      color: #ffcc00;
+      margin-bottom: 1.6rem;
+
+      svg {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+    }
+
+    &__category {
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      margin-bottom: 1.6rem;
+    }
+
+    &__name {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 1.6rem;
+    }
+
+    &__price {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 1.6rem;
+    }
+
+    &__description {
+      font-size: 1.2rem;
+      margin-bottom: 1.6rem;
+    }
+  }
+}

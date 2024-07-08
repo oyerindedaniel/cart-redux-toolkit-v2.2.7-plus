@@ -1,0 +1,210 @@
+@import "./variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+:root {
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: "Playfair Display", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* color-scheme: light dark; */
+
+  /* font-synthesis: none;
+text-rendering: optimizeLegibility;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale; */ /* Removed extra comment closing symbols */
+}
+
+html {
+  $vw: 100vw;
+  font-size: calc($vw / 1440px * 10px);
+  margin: auto;
+
+  color: $black-color;
+  background-color: $surface-color;
+}
+
+body {
+}
+
+a {
+  color: var(--black-color);
+  text-decoration: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  // all: unset !important;
+}
+
+.overflow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($black-color, 0.6);
+  z-index: 10;
+  border-radius: 0.8rem;
+}
+
+.product-card {
+  position: relative;
+  width: 38.6rem;
+  background-color: $secondary-color;
+  // background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 1px 18px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  height: 45rem;
+
+  &__badge {
+    position: absolute;
+    top: 3.7rem;
+    left: 4.2rem;
+    background-color: $orange-color;
+    color: #fff;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 6rem;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+
+  &__favorite {
+    position: absolute;
+    top: 3.7rem;
+    right: 4rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    border-radius: 6rem;
+    background-color: $surface-color;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+
+    svg {
+      fill: none;
+      stroke: #ff0000; /* Heart color */
+    }
+  }
+
+  &__image__container {
+    width: 35.4rem;
+    height: 29.6rem;
+
+    margin: 1.6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__image {
+    border-radius: 0.8rem;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+
+  &__details {
+    width: 35.4rem;
+    height: 10.6rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+
+  &__rating__container {
+    // margin: 0.5rem 0;
+    color: #ffcc00;
+  }
+
+  &__rating {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    margin: 0.5rem 0;
+  }
+
+  &__price {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #000;
+  }
+}
+
+/* a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} */

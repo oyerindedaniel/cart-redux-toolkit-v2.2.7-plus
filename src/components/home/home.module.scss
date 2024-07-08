@@ -1,0 +1,168 @@
+@import "../../variables.scss";
+
+.home {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  &__wrapper {
+    // position: absolute;
+    width: 100%;
+    height: 100%;
+
+    // overflow: hidden;
+  }
+
+  &__hero {
+    display: flex;
+    padding: 10.7rem 9.89rem 12.7rem 10.4rem;
+    gap: 27rem;
+    align-items: center;
+
+    &__detail {
+      width: 45.2rem;
+      padding: 0.8rem 1.6rem;
+
+      &__h1 {
+        font-size: 4.8rem;
+        margin: 0 auto;
+        margin-bottom: 1.6rem;
+      }
+
+      &__p {
+        margin: auto;
+        font-size: 1.6rem;
+        margin-bottom: 6.4rem;
+      }
+    }
+
+    &__image__container {
+      width: 51.5rem;
+      height: 60.5rem;
+      border-radius: 1.6rem;
+      position: relative;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &__image {
+    }
+  }
+
+  &__bestsellers {
+    overflow: hidden;
+    margin-bottom: 4rem;
+
+    &__header {
+      width: 123.2rem;
+      height: 5.4rem;
+      margin: auto;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 3.8rem;
+
+      h2 {
+        font-size: 3.2rem;
+      }
+
+      &__span {
+        display: flex;
+        align-items: center;
+        font-size: 1.6rem;
+
+        span {
+        }
+
+        svg {
+          margin-left: 1.6rem;
+        }
+      }
+    }
+
+    &__carousel {
+      width: 385rem;
+      height: 50rem;
+      display: flex;
+      align-items: center;
+      gap: 7.2rem;
+      margin-left: 10.5rem;
+
+      figure {
+        width: 123rem;
+        height: 100%;
+        position: relative;
+
+        overflow: hidden;
+
+        img {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 0.8rem;
+
+          object-fit: cover;
+        }
+
+        figcaption {
+          position: absolute;
+          bottom: 6.3rem;
+          left: 4.1rem;
+          z-index: 20;
+
+          color: $white-color;
+
+          div:first-child {
+            font-size: 2.4rem;
+            font-weight: 900;
+            margin-bottom: 1.6rem;
+            color: white;
+          }
+
+          div:last-child {
+            font-size: 1.6rem;
+            font-weight: 500;
+            width: 51.8rem;
+            color: inherit;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+  }
+
+  &__catalog {
+    margin-bottom: 18.6rem;
+
+    &__header {
+      width: 123.2rem;
+      height: 5.4rem;
+      margin: auto;
+      margin-bottom: 4.3rem;
+
+      h2 {
+        font-size: 3.2rem;
+      }
+    }
+
+    &__content {
+      margin: auto;
+      gap: 2.4rem;
+      width: 123rem;
+      padding: 5.45rem 1.2rem;
+      cursor: pointer;
+
+      display: grid;
+      // grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
