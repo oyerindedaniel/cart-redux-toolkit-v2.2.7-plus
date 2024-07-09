@@ -35,7 +35,7 @@ const CartSummary: React.FC<CartSummaryProps> = ({
         <div className={styles.summary__return}>
           <Button
             size="large"
-            onClick={clearCart}
+            onClick={() => navigate("/")}
             leftElement={
               <ChevronLeft size="2.4rem" style={{ marginRight: "1.6rem" }} />
             }
