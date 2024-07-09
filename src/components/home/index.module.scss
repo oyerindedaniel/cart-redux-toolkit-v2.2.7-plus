@@ -57,6 +57,7 @@
         @include media("<phone") {
           font-size: 1.4rem;
           margin: 0.8rem 1.6rem 4rem 1.6rem;
+          line-height: 1.4;
         }
       }
 
@@ -101,7 +102,8 @@
       margin: auto;
 
       @include media("<phone") {
-        width: 36rem;
+        width: 34.4rem;
+        margin-top: auto;
         // margin:  0;
       }
 
@@ -123,6 +125,10 @@
         display: flex;
         align-items: center;
         font-size: 1.6rem;
+
+        @include media("<phone") {
+          font-size: 1.2rem;
+        }
 
         span {
         }
@@ -248,7 +254,8 @@
       margin-bottom: 4.3rem;
 
       @include media("<phone") {
-        width: 36rem;
+        width: 34.4rem;
+        margin-top: auto;
       }
 
       h2 {
