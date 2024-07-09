@@ -47,11 +47,13 @@ const OrderConfirmation: React.FC = () => {
               />
             ))}
           </div>
-          <CartSummary
-            clearCart={clearCart}
-            totalCost={totalCost}
-            mode="order"
-          />
+          <div className={styles.orderConfirmation__summary}>
+            <CartSummary
+              clearCart={clearCart}
+              totalCost={totalCost}
+              mode="order"
+            />
+          </div>
         </div>
       </div>
     </div>

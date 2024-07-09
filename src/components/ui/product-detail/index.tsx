@@ -67,23 +67,25 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
             <div className={styles.productDetailCard__info__description}>
               {product.description}
             </div>
-            <Button
-              className={styles.productDetailCard__info__button}
-              onClick={() => {
-                flushSync(() => setIsAdded(true));
-                addToCart(product);
-              }}
-              type="button"
-              variant="primary"
-              size="medium"
-            >
-              Add to cart
-            </Button>
-            {isAdded && (
-              <span className={styles.productDetailCard__isAdded}>
-                New Item Added!
-              </span>
-            )}
+            <div className={styles.productDetailCard__info__added}>
+              <Button
+                className={styles.productDetailCard__info__button}
+                onClick={() => {
+                  flushSync(() => setIsAdded(true));
+                  addToCart(product);
+                }}
+                type="button"
+                variant="primary"
+                size="medium"
+              >
+                Add to cart
+              </Button>
+              {isAdded && (
+                <span className={styles.productDetailCard__isAdded}>
+                  New Item Added!
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>
