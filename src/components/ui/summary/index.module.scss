@@ -52,6 +52,12 @@
     height: 5.6rem;
   }
 
+  &__continueButton {
+    border-radius: 0.8rem;
+    color: $black-color;
+    border: 0.15rem solid $grey-color;
+  }
+
   &__returnButton {
     width: 100%;
   }
