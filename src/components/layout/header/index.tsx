@@ -1,12 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Cart, PendoPrimary } from "../../../assets";
+import { Cart, Menu, PendoPrimary } from "../../../assets";
 import useCart from "../../../hooks/use-cart";
 import Button from "../../ui/button";
 import styles from "./header.module.scss";
 
 const links = [
   { name: "Home", url: "/" },
-  { name: "Shop", url: "/shop" },
+  { name: "Cart", url: "/cart" },
   { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ] as const;
@@ -31,14 +31,17 @@ const Header = () => {
             ))}
           </div>
           <div className={styles.header__options}>
-            <Button
-              onClick={() => navigate("/cart")}
-              className={styles.header__cart}
-              variant="unstyled"
-            >
-              <img src={Cart} alt="your cart" />
-            </Button>
-            <span>{totalItems}</span>
+            <div className={styles.header__options__cart}>
+              <Button onClick={() => navigate("/cart")} variant="unstyled">
+                <img src={Cart} alt="your cart" />
+              </Button>
+              <span>{totalItems}</span>
+            </div>
+            <div className={styles.header__options__menu}>
+              <Button className={styles.header__menu} variant="unstyled">
+                <img src={Menu} alt="menu" />
+              </Button>
+            </div>
           </div>
         </nav>
       </div>

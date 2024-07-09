@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/responsive";
 
 .header {
   width: 100%;
@@ -20,18 +21,21 @@
     // width: 100%;
     height: 100%;
     padding: 0 3.2rem;
+
+    @include media("<phone") {
+      padding: 0 1.6rem;
+    }
   }
 
   &__logo {
-    width: 16.5rem;
-    height: 5rem;
-  }
+    img {
+      width: auto;
+      height: 5rem;
 
-  &__cart {
-    width: 2.4rem;
-    height: 2.4rem;
-    background-color: transparent;
-    margin-left: auto;
+      @include media("<phone") {
+        height: 3rem;
+      }
+    }
   }
 
   &__links {
@@ -40,6 +44,10 @@
     align-items: center;
     width: 55.3rem;
     height: 1.9rem;
+
+    @include media("<phone") {
+      display: none;
+    }
   }
 
   &__options {
@@ -47,22 +55,53 @@
     height: 4rem;
     display: flex;
     align-items: center;
-    position: relative;
+    justify-content: end;
+    gap: 3rem;
 
-    span {
-      border-radius: 100%;
-      color: $white-color;
-      background-color: $red-color;
-      width: 2.4rem;
-      height: 2.4rem;
-      position: absolute;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 1.3rem;
-      top: -1px;
-      right: -12px;
+    &__cart {
+      background-color: transparent;
+      position: relative;
+
+      & > img {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      span {
+        border-radius: 100%;
+        color: $white-color;
+        background-color: $red-color;
+        width: 2.4rem;
+        height: 2.4rem;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.3rem;
+        top: -0.8rem;
+        right: -1.2rem;
+
+        @include media("<phone") {
+          width: 1.6rem;
+          height: 1.6rem;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    &__menu {
+      background-color: transparent;
+      display: none;
+
+      @include media("<phone") {
+        display: block;
+      }
+
+      & > img {
+        width: 2.4rem;
+        height: 2.4rem;
+      }
     }
   }
 }

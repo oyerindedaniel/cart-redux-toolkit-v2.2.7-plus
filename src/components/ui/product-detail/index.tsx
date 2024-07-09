@@ -15,7 +15,7 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
     if (isAdded) {
       setTimeout(() => {
         setIsAdded(false);
-      }, 1500);
+      }, 600);
     }
   }, [isAdded]);
 
@@ -68,6 +68,7 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
               {product.description}
             </div>
             <Button
+              className={styles.productDetailCard__info__button}
               onClick={() => {
                 flushSync(() => setIsAdded(true));
                 addToCart(product);

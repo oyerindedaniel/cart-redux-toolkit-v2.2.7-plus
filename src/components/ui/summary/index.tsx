@@ -36,7 +36,9 @@ const CartSummary: React.FC<CartSummaryProps> = ({
           <Button
             size="large"
             onClick={clearCart}
-            leftElement={<ChevronLeft style={{ marginRight: "1.6rem" }} />}
+            leftElement={
+              <ChevronLeft size="2.4rem" style={{ marginRight: "1.6rem" }} />
+            }
             className={styles.summary__continueButton}
             variant="unstyled"
           >
@@ -44,7 +46,9 @@ const CartSummary: React.FC<CartSummaryProps> = ({
           </Button>
           <Button
             size="large"
-            rightElement={<ChevronRight style={{ marginLeft: "1.6rem" }} />}
+            rightElement={
+              <ChevronRight size="2.4rem" style={{ marginLeft: "1.6rem" }} />
+            }
             onClick={() => navigate("/checkout")}
             className={styles.summary__paymentButton}
             variant="primary"

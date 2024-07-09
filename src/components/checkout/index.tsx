@@ -43,7 +43,7 @@ const Checkout: React.FC = () => {
         <div className={styles.checkout__content}>
           <div className={styles.checkout__header}>
             <span className={styles.checkout__header__icon}>
-              <ArrowRight />
+              <ArrowRight size="2.4rem" />
             </span>
             <h2 className={styles.checkout__header__title}>Checkout</h2>
           </div>

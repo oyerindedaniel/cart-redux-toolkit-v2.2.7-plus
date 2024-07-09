@@ -1,6 +1,7 @@
 import { a, useSpring, useTransition } from "@react-spring/web";
 import React, { useRef } from "react";
-import styles from "./modal.module.scss";
+import styles from "./index.module.scss";
+import Button from "../button";
 
 interface ModalProps {
   isOpen: boolean;
@@ -76,7 +77,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
           >
             <a.div style={openAnimationSpring} className={styles.modal}>
               <div className={styles.modal__content}>
-                {/* <button className={styles.modal__closeButton} onClick={onClose}>
+                <Button className={styles.modal__closeButton} onClick={onClose}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -92,7 +93,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
                     <path d="M18 6 6 18" />
                     <path d="m6 6 12 12" />
                   </svg>
-                </button> */}
+                </Button>
                 {children}
               </div>
             </a.div>

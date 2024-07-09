@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-spring/web": "^9.7.3",
     "clsx": "^2.1.1",
+    "include-media": "^2.0.0",
     "lucide-react": "^0.403.0",
     "path": "^0.12.7",
     "react": "^18.3.1",

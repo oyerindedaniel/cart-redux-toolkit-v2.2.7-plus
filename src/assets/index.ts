@@ -15,15 +15,16 @@ import Item6 from "./item-6.png";
 import Item7 from "./item-7.png";
 import Item8 from "./item-8.png";
 import Item9 from "./item-9.png";
+import MasterCard from "./mastercard.png";
+import Menu from "./menu.svg";
 import PendoPrimary from "./pendo-primary.svg";
 import PendoWhite from "./pendo-white.svg";
 import Pendo from "./pendo.svg";
 import Pinterest from "./pinterest.svg";
 import Profile from "./profile.svg";
-import Twitter from "./twitter.svg";
-import MasterCard from "./mastercard.png";
-import Visa from "./visa.png";
 import Success from "./success.svg";
+import Twitter from "./twitter.svg";
+import Visa from "./visa.png";
 
 export {
   Cart,
@@ -43,13 +44,14 @@ export {
   Item7,
   Item8,
   Item9,
+  MasterCard,
+  Menu,
   Pendo,
   PendoPrimary,
   PendoWhite,
   Pinterest,
   Profile,
-  MasterCard,
-  Visa,
-  Twitter,
   Success,
+  Twitter,
+  Visa,
 };

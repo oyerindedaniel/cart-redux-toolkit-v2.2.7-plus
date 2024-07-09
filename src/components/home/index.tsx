@@ -42,6 +42,7 @@ const Home = () => {
                 type="button"
                 variant="primary"
                 size="large"
+                className={styles.home__hero__detail__button}
                 rightElement={
                   <ChevronRight
                     width="2.4rem"

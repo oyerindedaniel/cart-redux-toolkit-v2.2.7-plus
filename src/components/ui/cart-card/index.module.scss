@@ -1,4 +1,5 @@
 @import "../../../styles/variables";
+@import "../../../styles/responsive";
 
 .cartCard {
   &__item {
@@ -8,12 +9,20 @@
     // border-top: 2px solid #ddd;
     border-bottom: 2px solid #ddd;
 
+    @include media("<phone") {
+      gap: 1.6rem;
+    }
+
     &__image img {
       width: 10rem;
       height: 10rem;
       border-radius: 0.8rem;
       margin-right: 5rem;
       object-fit: cover;
+
+      @include media("<phone") {
+        margin-right: 0;
+      }
     }
 
     &__details {
@@ -22,16 +31,28 @@
       width: 100%;
 
       & > div:first-child {
+        @include media("<phone") {
+          width: 10.6rem;
+        }
+
         .name {
           font-size: 2rem;
 
           font-weight: semibold;
           margin-bottom: 0.8rem;
+
+          @include media("<phone") {
+            font-size: 1.4rem;
+          }
         }
 
         .description {
           font-size: 1.4rem;
           margin-bottom: 0.8rem;
+
+          @include media("<phone") {
+            font-size: 1.2rem;
+          }
         }
 
         .quantity {

@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+@import "../../styles/responsive";
 
 .home {
   width: 100%;
@@ -18,21 +19,51 @@
     padding: 10.7rem 9.89rem 12.7rem 10.4rem;
     gap: 27rem;
     align-items: center;
+    flex-direction: row;
+
+    @include media("<phone") {
+      flex-direction: column;
+      padding: 0;
+      margin-top: 6.3rem;
+      gap: 3.9rem;
+    }
 
     &__detail {
       width: 45.2rem;
       padding: 0.8rem 1.6rem;
 
-      &__h1 {
+      @include media("<phone") {
+        padding: 0;
+        width: 36rem;
+        height: 24rem;
+      }
+
+      h1 {
         font-size: 4.8rem;
         margin: 0 auto;
         margin-bottom: 1.6rem;
+
+        @include media("<phone") {
+          font-size: 3.6rem;
+          margin: 0.8rem 1.6rem 0.8rem 1.6rem;
+        }
       }
 
-      &__p {
+      p {
         margin: auto;
         font-size: 1.6rem;
         margin-bottom: 6.4rem;
+
+        @include media("<phone") {
+          font-size: 1.4rem;
+          margin: 0.8rem 1.6rem 4rem 1.6rem;
+        }
+      }
+
+      &__button {
+        @include media("<phone") {
+          margin: 0.8rem 1.6rem 4rem 1.6rem;
+        }
       }
     }
 
@@ -42,6 +73,12 @@
       border-radius: 1.6rem;
       position: relative;
       overflow: hidden;
+
+      @include media("<phone") {
+        width: 32.8rem;
+        height: 26.7rem;
+        margin-bottom: 7.1rem;
+      }
 
       img {
         object-fit: cover;
@@ -63,6 +100,11 @@
       height: 5.4rem;
       margin: auto;
 
+      @include media("<phone") {
+        width: 36rem;
+        // margin:  0;
+      }
+
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -71,6 +113,10 @@
 
       h2 {
         font-size: 3.2rem;
+
+        @include media("<phone") {
+          font-size: 1.6rem;
+        }
       }
 
       &__span {
@@ -98,6 +144,13 @@
         gap: 7.2rem;
         margin-left: 10.5rem;
         overflow-x: auto;
+
+        @include media("<phone") {
+          width: 108rem;
+          height: 21.6rem;
+          gap: 3.6rem;
+          margin-left: 1.6rem;
+        }
       }
 
       /* WebKit Browsers */
@@ -120,7 +173,7 @@
 
       /* Firefox */
       scrollbar-width: thin;
-      scrollbar-color: $primary-color #f1f1f1;
+      scrollbar-color: $white-color #f1f1f1;
 
       figure {
         width: 123rem;
@@ -128,6 +181,11 @@
         position: relative;
 
         overflow: hidden;
+
+        @include media("<phone") {
+          width: 32.8rem;
+          height: 20rem;
+        }
 
         img {
           position: absolute;
@@ -146,11 +204,21 @@
 
           color: $white-color;
 
+          @include media("<phone") {
+            bottom: 1.8rem;
+            left: 1.8rem;
+          }
+
           div:first-child {
             font-size: 2.4rem;
             font-weight: 900;
             margin-bottom: 1.6rem;
             color: white;
+
+            @include media("<phone") {
+              font-size: 1.6rem;
+              margin-bottom: 0.8rem;
+            }
           }
 
           div:last-child {
@@ -159,6 +227,11 @@
             width: 51.8rem;
             color: inherit;
             line-height: 1.2;
+
+            @include media("<phone") {
+              font-size: 0.8rem;
+              width: 23.3rem;
+            }
           }
         }
       }
@@ -174,8 +247,16 @@
       margin: auto;
       margin-bottom: 4.3rem;
 
+      @include media("<phone") {
+        width: 36rem;
+      }
+
       h2 {
         font-size: 3.2rem;
+
+        @include media("<phone") {
+          font-size: 1.6rem;
+        }
       }
     }
 
@@ -189,6 +270,12 @@
       display: grid;
       // grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
       grid-template-columns: repeat(3, 1fr);
+
+      @include media("<phone") {
+        width: 100%;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 0;
+      }
     }
   }
 }

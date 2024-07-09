@@ -24,7 +24,7 @@ const CartPage: React.FC = () => {
         <div className={styles.cartPage__content}>
           <div className={styles.cartPage__header}>
             <span className={styles.cartPage__header__icon}>
-              <ArrowRight />
+              <ArrowRight size="2.4rem" />
             </span>
             <h1 className={styles.cartPage__header__title}>Shopping Cart</h1>
           </div>
