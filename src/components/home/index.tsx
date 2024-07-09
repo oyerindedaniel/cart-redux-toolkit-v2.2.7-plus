@@ -45,8 +45,7 @@ const Home = () => {
                 className={styles.home__hero__detail__button}
                 rightElement={
                   <ChevronRight
-                    width="2.4rem"
-                    height="2.4rem"
+                    size="2.4rem"
                     style={{ marginLeft: "1.6rem" }}
                   />
                 }
