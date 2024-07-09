@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { flushSync } from "react-dom";
 import useCart from "../../../hooks/use-cart";
 import { type Product } from "../../../types";
 import Button from "../button";
@@ -7,7 +8,16 @@ import styles from "./index.module.scss";
 type ProductDetailProps = Product;
 
 const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
+  const [isAdded, setIsAdded] = useState(false);
   const { addToCart } = useCart();
+
+  useEffect(() => {
+    if (isAdded) {
+      setTimeout(() => {
+        setIsAdded(false);
+      }, 1500);
+    }
+  }, [isAdded]);
 
   return (
     <div className={styles.productDetailCard}>
@@ -58,13 +68,21 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
               {product.description}
             </div>
             <Button
-              onClick={() => addToCart(product)}
+              onClick={() => {
+                flushSync(() => setIsAdded(true));
+                addToCart(product);
+              }}
               type="button"
               variant="primary"
               size="medium"
             >
               Add to cart
             </Button>
+            {isAdded && (
+              <span className={styles.productDetailCard__isAdded}>
+                New Item Added!
+              </span>
+            )}
           </div>
         </div>
       </div>

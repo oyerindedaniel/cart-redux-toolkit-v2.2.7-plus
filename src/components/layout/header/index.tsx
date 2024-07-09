@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Cart, PendoPrimary } from "../../../assets";
+import useCart from "../../../hooks/use-cart";
 import Button from "../../ui/button";
 import styles from "./header.module.scss";
 
@@ -12,6 +13,9 @@ const links = [
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const { totalItems } = useCart();
+
   return (
     <div className={styles.header}>
       <div className={styles.header__wrapper}>
@@ -34,6 +38,7 @@ const Header = () => {
             >
               <img src={Cart} alt="your cart" />
             </Button>
+            <span>{totalItems}</span>
           </div>
         </nav>
       </div>

@@ -47,5 +47,22 @@
     height: 4rem;
     display: flex;
     align-items: center;
+    position: relative;
+
+    span {
+      border-radius: 100%;
+      color: $white-color;
+      background-color: $red-color;
+      width: 2.4rem;
+      height: 2.4rem;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.3rem;
+      top: -1px;
+      right: -12px;
+    }
   }
 }
