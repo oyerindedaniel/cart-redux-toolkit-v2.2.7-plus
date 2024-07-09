@@ -52,7 +52,7 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
                 ))}
             </div>
             <div className={styles.productDetailCard__info__price}>
-              ${product.price.toFixed(2)}
+              N{product.price.toLocaleString()}
             </div>
             <div className={styles.productDetailCard__info__description}>
               {product.description}

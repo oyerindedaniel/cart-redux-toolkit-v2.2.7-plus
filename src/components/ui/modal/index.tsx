@@ -25,6 +25,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     opacity: isOpen ? 1 : 0,
     config: {
       tension: 300,
+      duration: 200,
     },
   });
 
@@ -33,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: {
-      duration: 250,
+      duration: 200,
     },
   });
 

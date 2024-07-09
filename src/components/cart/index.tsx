@@ -8,15 +8,7 @@ import styles from "./cart.module.scss";
 const CartPage: React.FC = () => {
   const navigate = useNavigate();
 
-  const {
-    cart,
-    addToCart,
-    getItemCount,
-    removeFromCart,
-    clearCart,
-    totalItems,
-    totalCost,
-  } = useCart();
+  const { cart, removeFromCart, clearCart, totalItems, totalCost } = useCart();
 
   return (
     <div className={styles.cartPage}>
