@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.orderConfirmation {
+  &__wrapper {
+  }
+
+  &__content {
+    margin: auto 10.4rem;
+  }
+
+  &__message {
+    margin-top: 18.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 12rem;
+      height: 12rem;
+      margin-bottom: 2.6rem;
+    }
+
+    h2 {
+      font-size: 4rem;
+      font-weight: 500;
+      margin-bottom: 1.6rem;
+    }
+
+    p {
+      font-size: 2rem;
+      margin-bottom: 4.9rem;
+    }
+
+    &__button {
+      border-radius: 0.8rem;
+      width: 23.1rem;
+      font-size: 1.6rem;
+      color: $black-color;
+      border: 0.1px solid $grey-color;
+    }
+  }
+
+  &__button {
+  }
+
+  &__cart {
+  }
+}

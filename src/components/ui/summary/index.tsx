@@ -7,7 +7,7 @@ import styles from "./index.module.scss";
 interface CartSummaryProps {
   totalCost: number;
   clearCart: () => void;
-  mode: "checkout" | "cart";
+  mode?: "checkout" | "cart" | "order";
 }
 
 const CartSummary: React.FC<CartSummaryProps> = ({
@@ -56,11 +56,24 @@ const CartSummary: React.FC<CartSummaryProps> = ({
       {mode === "checkout" && (
         <Button
           size="large"
-          onClick={clearCart}
+          onClick={() => navigate("/order-confirmation")}
           className={styles.summary__pay}
           variant="primary"
         >
           Pay now
+        </Button>
+      )}
+      {mode === "order" && (
+        <Button
+          size="large"
+          onClick={() => {
+            clearCart();
+            navigate("/");
+          }}
+          className={styles.summary__returnButton}
+          variant="primary"
+        >
+          Return to home
         </Button>
       )}
     </div>
@@ -68,14 +81,3 @@ const CartSummary: React.FC<CartSummaryProps> = ({
 };
 
 export default CartSummary;
-
-{
-  /* <Button
-  size="large"
-  onClick={clearCart}
-  className={styles.summary__clearButton}
-  variant="unstyled"
->
-  Clear Cart
-</Button>; */
-}

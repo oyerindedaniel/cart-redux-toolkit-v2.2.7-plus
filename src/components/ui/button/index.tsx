@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { cn } from "../../../utils/functions";
-import styles from "./button.module.scss";
+import styles from "./index.module.scss";
 
 type ButtonVariant = "primary" | "secondary" | "danger" | "unstyled";
 type ButtonSize = "small" | "medium" | "large";

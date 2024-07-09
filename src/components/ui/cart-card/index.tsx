@@ -10,9 +10,15 @@ interface CartCardProps {
   removeFromCart: (name: string) => void;
   addToCart: (item: CartItem) => void;
   getItemCount: (name: string) => number;
+  mode?: "order";
 }
 
-const CartCard: React.FC<CartCardProps> = ({ item, index, removeFromCart }) => {
+const CartCard: React.FC<CartCardProps> = ({
+  item,
+  index,
+  removeFromCart,
+  mode,
+}) => {
   return (
     <div className={styles.cartCard}>
       <div key={index} className={styles.cartCard__item}>
@@ -47,16 +53,18 @@ const CartCard: React.FC<CartCardProps> = ({ item, index, removeFromCart }) => {
           </div>
           <div>
             <p className={styles.price}>{`N${item.price.toLocaleString()}`}</p>
-            <Button
-              variant="unstyled"
-              leftElement={
-                <Trash2 size="2.4rem" style={{ marginRight: "1.6rem" }} />
-              }
-              onClick={() => removeFromCart(item.name)}
-              className={styles.removeButton} // Uncomment if needed
-            >
-              Delete
-            </Button>
+            {mode !== "order" && (
+              <Button
+                variant="unstyled"
+                leftElement={
+                  <Trash2 size="2.4rem" style={{ marginRight: "1.6rem" }} />
+                }
+                onClick={() => removeFromCart(item.name)}
+                className={styles.removeButton} // Uncomment if needed
+              >
+                Delete
+              </Button>
+            )}
           </div>
         </div>
       </div>

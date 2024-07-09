@@ -23,6 +23,7 @@ import Profile from "./profile.svg";
 import Twitter from "./twitter.svg";
 import MasterCard from "./mastercard.png";
 import Visa from "./visa.png";
+import Success from "./success.svg";
 
 export {
   Cart,
@@ -50,4 +51,5 @@ export {
   MasterCard,
   Visa,
   Twitter,
+  Success,
 };

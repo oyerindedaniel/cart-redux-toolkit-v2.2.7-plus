@@ -5,6 +5,7 @@ import CartPage from "./components/cart";
 import Checkout from "./components/checkout";
 import Home from "./components/home";
 import Layout from "./components/layout";
+import OrderConfirmation from "./components/order";
 
 const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
   {
@@ -32,6 +33,14 @@ const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
     element: (
       <Layout>
         <Checkout />
+      </Layout>
+    ),
+  },
+  {
+    path: "/order-confirmation",
+    element: (
+      <Layout>
+        <OrderConfirmation />
       </Layout>
     ),
   },
