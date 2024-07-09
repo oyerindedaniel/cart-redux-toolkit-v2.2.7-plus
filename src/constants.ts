@@ -28,7 +28,7 @@ export const sofas = [
       "Our timber carved sofas are not just pieces of furniture; they’re crafted from sustainable fine wood, each detail carefully chosen to bring nature’s warmth into your home.",
   },
   {
-    img: Item3,
+    image: Item3,
     heading: "Zephyr Sofa",
     content:
       "Featuring sleek, chunky wooden arms and plush upholstery, it combines modern craftsmanship with a sophisticated rustic style.",

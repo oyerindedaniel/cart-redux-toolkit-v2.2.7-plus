@@ -56,7 +56,6 @@
   }
 
   &__bestsellers {
-    overflow: hidden;
     margin-bottom: 4rem;
 
     &__header {
@@ -89,12 +88,39 @@
     }
 
     &__carousel {
-      width: 385rem;
-      height: 50rem;
-      display: flex;
-      align-items: center;
-      gap: 7.2rem;
-      margin-left: 10.5rem;
+      overflow-x: auto;
+
+      &__wrapper {
+        width: 385rem;
+        height: 50rem;
+        display: flex;
+        align-items: center;
+        gap: 7.2rem;
+        margin-left: 10.5rem;
+        overflow-x: auto;
+      }
+
+      /* WebKit Browsers */
+      &::-webkit-scrollbar {
+        height: 1rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      /* Firefox */
+      scrollbar-width: thin;
+      scrollbar-color: $primary-color #f1f1f1;
 
       figure {
         width: 123rem;

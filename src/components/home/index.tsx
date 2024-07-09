@@ -85,18 +85,20 @@ const Home = () => {
               </div>
             </div>
             <div className={styles.home__bestsellers__carousel}>
-              {sofas.map((sofa) => {
-                return (
-                  <figure>
-                    <div className="overflow"></div>
-                    <img src={sofa.image} alt={sofa.heading} />
-                    <figcaption>
-                      <div>{sofa.heading}</div>
-                      <div>{sofa.content}</div>
-                    </figcaption>
-                  </figure>
-                );
-              })}
+              <div className={styles.home__bestsellers__carousel__wrapper}>
+                {sofas.map((sofa) => {
+                  return (
+                    <figure>
+                      <div className="overflow"></div>
+                      <img src={sofa.image} alt={sofa.heading} />
+                      <figcaption>
+                        <div>{sofa.heading}</div>
+                        <div>{sofa.content}</div>
+                      </figcaption>
+                    </figure>
+                  );
+                })}
+              </div>
             </div>
           </section>
           <section className={styles.home__catalog}>
