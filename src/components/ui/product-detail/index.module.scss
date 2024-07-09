@@ -126,7 +126,7 @@
 
     &__button {
       width: 20rem;
-      margin: auto;
+      margin: 0 auto;
     }
   }
 
@@ -134,5 +134,10 @@
     font-size: 1.4rem;
     margin-top: 1.6rem;
     color: $green-color;
+
+    @include media("<phone") {
+      font-size: 1.2rem;
+      text-align: center;
+    }
   }
 }
