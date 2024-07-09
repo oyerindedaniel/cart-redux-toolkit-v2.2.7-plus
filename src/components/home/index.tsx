@@ -9,7 +9,7 @@ import { type Product } from "../../types";
 import Button from "../ui/button";
 import Modal from "../ui/modal";
 import ProductDetailCard from "../ui/product-detail";
-import styles from "./home.module.scss";
+import styles from "./index.module.scss";
 
 const Home = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

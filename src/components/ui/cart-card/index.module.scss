@@ -1,0 +1,66 @@
+@import "../../../styles/variables";
+
+.cartCard {
+  &__item {
+    display: flex;
+    gap: 20px;
+    padding: 4rem 0;
+    // border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+
+    &__image img {
+      width: 10rem;
+      height: 10rem;
+      border-radius: 0.8rem;
+      margin-right: 5rem;
+      object-fit: cover;
+    }
+
+    &__details {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      & > div:first-child {
+        .name {
+          font-size: 2rem;
+
+          font-weight: semibold;
+          margin-bottom: 0.8rem;
+        }
+
+        .description {
+          font-size: 1.4rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .quantity {
+          font-size: 1.4rem;
+          margin-bottom: 0.8rem;
+          color: $green-color;
+        }
+
+        .actions {
+          font-size: 1.4rem;
+          display: flex;
+          align-items: center;
+          gap: 0.8rem;
+        }
+
+        // .removeButton,
+        // .addButton {
+        //   width: 1.8rem;
+        //   height: 1.8rem;
+        // }
+      }
+
+      & > div:last-child {
+        .price {
+          font-size: 1.4rem;
+          margin-bottom: 2.4rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

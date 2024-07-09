@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import About from "./components/about";
 import CartPage from "./components/cart";
+import Checkout from "./components/checkout";
 import Home from "./components/home";
 import Layout from "./components/layout";
 
@@ -23,6 +24,14 @@ const router: ReturnType<typeof createBrowserRouter> = createBrowserRouter([
     element: (
       <Layout>
         <CartPage />
+      </Layout>
+    ),
+  },
+  {
+    path: "/checkout",
+    element: (
+      <Layout>
+        <Checkout />
       </Layout>
     ),
   },

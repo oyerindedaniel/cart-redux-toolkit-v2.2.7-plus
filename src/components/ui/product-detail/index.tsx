@@ -2,7 +2,7 @@ import React from "react";
 import useCart from "../../../hooks/use-cart";
 import { type Product } from "../../../types";
 import Button from "../button";
-import styles from "./productdetailcard.module.scss";
+import styles from "./index.module.scss";
 
 type ProductDetailProps = Product;
 

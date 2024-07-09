@@ -20,8 +20,10 @@ const Header = () => {
             <img src={PendoPrimary} alt="Pendo" />
           </Link>
           <div className={styles.header__links}>
-            {links.map((link) => (
-              <Link to={link.url}>{link.name}</Link>
+            {links.map((link, idx) => (
+              <Link key={idx} to={link.url}>
+                {link.name}
+              </Link>
             ))}
           </div>
           <div className={styles.header__options}>

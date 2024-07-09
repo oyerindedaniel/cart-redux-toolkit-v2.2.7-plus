@@ -1,0 +1,45 @@
+@import "../../../styles/variables";
+
+.summary {
+  width: 51.7rem;
+  height: 26.5rem;
+  font-size: 1.6rem;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.3rem;
+
+  &__tax,
+  &__totalCost,
+  &__shipping {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__totalCost {
+    font-weight: bold;
+    margin-bottom: 6.4rem;
+  }
+
+  &__return {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__clearButton {
+    background-color: #d9534f;
+    color: white;
+  }
+
+  &__paymentButton,
+  &__continueButton {
+    width: 24.9rem;
+    height: 5.6rem;
+  }
+
+  &__pay {
+    width: 100%;
+  }
+}

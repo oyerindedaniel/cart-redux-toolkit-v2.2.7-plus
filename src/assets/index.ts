@@ -21,6 +21,8 @@ import Pendo from "./pendo.svg";
 import Pinterest from "./pinterest.svg";
 import Profile from "./profile.svg";
 import Twitter from "./twitter.svg";
+import MasterCard from "./mastercard.png";
+import Visa from "./visa.png";
 
 export {
   Cart,
@@ -45,5 +47,7 @@ export {
   PendoWhite,
   Pinterest,
   Profile,
+  MasterCard,
+  Visa,
   Twitter,
 };
