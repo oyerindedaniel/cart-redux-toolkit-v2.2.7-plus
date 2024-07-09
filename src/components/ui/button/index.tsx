@@ -14,7 +14,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: React.FC<ButtonProps> = ({
   variant = "unstyled",
-  size = "medium",
+  size = "small",
   leftElement,
   rightElement,
   children,

@@ -1,4 +1,4 @@
-import { ArrowRight, CircleMinus, CirclePlus } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Trash2 } from "lucide-react";
 import React from "react";
 import { useNavigate } from "react-router";
 import useCart from "../../hooks/use-cart";
@@ -49,7 +49,10 @@ const CartPage: React.FC = () => {
                       <div>
                         <h3 className={styles.name}>{item.name}</h3>
                         <p className={styles.description}>{item.description}</p>
-                        <div className={styles.actions}>
+                        <p className={styles.quantity}>
+                          {`Qty: ${item.quantity}`}
+                        </p>
+                        {/* <div className={styles.actions}>
                           <Button
                             variant="unstyled"
                             onClick={() => removeFromCart(item.name)}
@@ -67,15 +70,25 @@ const CartPage: React.FC = () => {
                           >
                             <CirclePlus />
                           </Button>
-                        </div>
+                        </div> */}
                       </div>
                       <div>
                         <p className={styles.price}>
-                          {`Price: N${item.price.toLocaleString()}`}
+                          {`N${item.price.toLocaleString()}`}
                         </p>
-                        <p className={styles.quantity}>
-                          {`Quantity: ${item.quantity}`}
-                        </p>
+                        <Button
+                          variant="unstyled"
+                          leftElement={
+                            <Trash2
+                              size="2.4rem"
+                              style={{ marginRight: "1.6rem" }}
+                            />
+                          }
+                          onClick={() => removeFromCart(item.name)}
+                          // className={styles.removeButton}
+                        >
+                          Delete
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -83,17 +96,25 @@ const CartPage: React.FC = () => {
               </div>
 
               <div className={styles.cartPage__summary}>
-                <p className={styles.cartPage__totalItems}>
-                  {`Total Items: ${totalItems}`}
-                </p>
-                <p className={styles.cartPage__totalCost}>
-                  {`Total Cost: N${totalCost.toLocaleString()}`}
-                </p>
-                <p className={styles.cartPage__shipping}>{`Shipping: Free`}</p>
+                <div className={styles.cartPage__tax}>
+                  <span>Tax</span>
+                  <p>Free</p>
+                </div>
+                <div className={styles.cartPage__shipping}>
+                  <span>Shipping</span>
+                  <p>Free</p>
+                </div>
+                <div className={styles.cartPage__totalCost}>
+                  <span>Total</span>
+                  <p>{`${totalCost.toLocaleString()}`}</p>
+                </div>
                 <div className={styles.cartPage__return}>
                   <Button
                     size="large"
                     onClick={clearCart}
+                    leftElement={
+                      <ChevronLeft style={{ marginRight: "1.6rem" }} />
+                    }
                     className={styles.cartPage__continueButton}
                     variant="unstyled"
                   >
@@ -101,6 +122,9 @@ const CartPage: React.FC = () => {
                   </Button>
                   <Button
                     size="large"
+                    rightElement={
+                      <ChevronRight style={{ marginLeft: "1.6rem" }} />
+                    }
                     onClick={() => navigate("/checkout")}
                     className={styles.cartPage__paymentButton}
                     variant="primary"
@@ -108,13 +132,13 @@ const CartPage: React.FC = () => {
                     Continue to Payment
                   </Button>
                 </div>
-                <Button
+                {/* <Button
                   onClick={clearCart}
                   className={styles.cartPage__clearButton}
                   variant="unstyled"
                 >
                   Clear Cart
-                </Button>
+                </Button> */}
               </div>
             </>
           )}

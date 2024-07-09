@@ -18,6 +18,8 @@
   }
 
   &--unstyled {
+    background-color: transparent;
+    color: $grey-color;
     // background-color: $primary-color;
     // color: $white-color;
   }
@@ -29,7 +31,7 @@
   }
 
   &--small {
-    padding: 0.5rem 1rem;
+    font-size: 1.4rem;
   }
 
   &--medium {
