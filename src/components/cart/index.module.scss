@@ -48,6 +48,10 @@
     margin: 40.1rem auto;
     text-align: center;
 
+    @include media("<phone") {
+      margin: 18.7rem 1.6rem;
+    }
+
     h4 {
       font-size: 2.8rem;
       font-weight: bold;

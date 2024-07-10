@@ -86,9 +86,9 @@ const Home = () => {
             </div>
             <div className={styles.home__bestsellers__carousel}>
               <div className={styles.home__bestsellers__carousel__wrapper}>
-                {sofas.map((sofa) => {
+                {sofas.map((sofa, index) => {
                   return (
-                    <figure>
+                    <figure key={index}>
                       <div className="overflow"></div>
                       <img src={sofa.image} alt={sofa.heading} />
                       <figcaption>
