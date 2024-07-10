@@ -1,7 +1,7 @@
 import { a, useSpring, useTransition } from "@react-spring/web";
 import React, { useRef } from "react";
-import styles from "./index.module.scss";
 import Button from "../button";
+import styles from "./index.module.scss";
 
 interface ModalProps {
   isOpen: boolean;
@@ -40,6 +40,9 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   });
 
   const handleClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     if (modalRef.current === e.target) {
       onClose();
     }

@@ -81,6 +81,10 @@
   }
 
   &__summary {
-    margin-bottom: 22.5rem;
+    margin-bottom: 10.4rem;
+
+    @include media("<phone") {
+      margin-bottom: 0;
+    }
   }
 }

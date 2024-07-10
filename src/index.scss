@@ -10,6 +10,7 @@
 *::after,
 *::before {
   box-sizing: inherit;
+  user-select: none;
 }
 
 :root {
@@ -30,6 +31,7 @@ html {
   $vw: 100vw;
   font-size: calc($vw / 1440px * 10px);
   margin: auto;
+  box-sizing: border-box;
 
   color: $black-color;
   background-color: $surface-color;

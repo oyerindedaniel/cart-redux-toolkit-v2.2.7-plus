@@ -15,7 +15,7 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
     if (isAdded) {
       setTimeout(() => {
         setIsAdded(false);
-      }, 600);
+      }, 250);
     }
   }, [isAdded]);
 
@@ -70,7 +70,10 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
             <div className={styles.productDetailCard__info__added}>
               <Button
                 className={styles.productDetailCard__info__button}
-                onClick={() => {
+                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+
                   flushSync(() => setIsAdded(true));
                   addToCart(product);
                 }}
