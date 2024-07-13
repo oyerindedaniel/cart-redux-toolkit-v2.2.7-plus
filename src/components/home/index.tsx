@@ -29,6 +29,8 @@ const Home = () => {
 
   const isNew = true;
 
+  console.log(items);
+
   return (
     <>
       {selectedProduct && (
@@ -156,9 +158,9 @@ const Home = () => {
                       </svg>
                     </div>
                     <div className="product-card__image__container">
-                      {product.photos && product.parent?.length && (
+                      {product.photos && product.photos?.length && (
                         <img
-                          src={product.photos[0]}
+                          src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
                           alt={product.name}
                           className="product-card__image"
                         />

@@ -35,7 +35,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, index }) => {
         <div key={index} className={styles.productCard__item}>
           {item.photos && item.photos.length && (
             <div className={styles.productCard__item__image}>
-              <img src={item.photos[0]} alt={item.name} />
+              <img
+                src={`https://api.timbu.cloud/images/${item.photos[0]?.url}`}
+                alt={item.name}
+              />
             </div>
           )}
           <div className={styles.productCard__item__details}>

@@ -53,6 +53,20 @@
     }
   }
 
+  &__galleryButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    &--left {
+      left: 1rem;
+    }
+
+    &--right {
+      right: 1rem;
+    }
+  }
+
   &__hr {
     height: 30.2rem;
     width: 1.5px;

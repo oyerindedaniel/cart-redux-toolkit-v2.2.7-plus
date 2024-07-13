@@ -1,3 +1,4 @@
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
 import { useCart } from "../../../hooks";
@@ -40,24 +41,24 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
             {product.photos && product.photos.length > 0 && (
               <>
                 <img
-                  src={product.photos[currentImageIndex]}
+                  src={`https://api.timbu.cloud/images/${product.photos[currentImageIndex]?.url}`}
                   alt={product.name}
                 />
                 {product.photos.length > 1 && (
                   <>
                     <Button
-                      variant="unstyled"
-                      className={styles.productDetailCard__galleryButton}
+                      variant="primary"
+                      className={`${styles.productDetailCard__galleryButton} ${styles["productDetailCard__galleryButton--left"]}`}
                       onClick={handlePrevImage}
                     >
-                      &lt;
+                      <ChevronLeft />
                     </Button>
                     <Button
-                      variant="unstyled"
-                      className={styles.productDetailCard__galleryButton}
+                      variant="primary"
+                      className={`${styles.productDetailCard__galleryButton} ${styles["productDetailCard__galleryButton--right"]}`}
                       onClick={handleNextImage}
                     >
-                      &gt;
+                      <ChevronRight />
                     </Button>
                   </>
                 )}

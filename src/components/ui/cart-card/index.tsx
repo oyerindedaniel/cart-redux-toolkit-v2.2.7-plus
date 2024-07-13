@@ -18,8 +18,11 @@ const CartCard: React.FC<CartCardProps> = ({ item, index, mode }) => {
     <div className={styles.cartCard}>
       <div key={index} className={styles.cartCard__item}>
         <div className={styles.cartCard__item__image}>
-          {item.photos && item.parent?.length && (
-            <img src={item.photos[0]} alt={item.name} />
+          {item.photos && item.photos?.length && (
+            <img
+              src={`https://api.timbu.cloud/images/${item.photos[0]?.url}`}
+              alt={item.name}
+            />
           )}
         </div>
         <div className={styles.cartCard__item__details}>
