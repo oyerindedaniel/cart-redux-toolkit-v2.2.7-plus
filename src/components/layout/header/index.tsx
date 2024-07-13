@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { Cart, Menu, PendoPrimary } from "../../../assets";
-import useCart from "../../../hooks/use-cart";
+import { useCart } from "../../../hooks";
 import Button from "../../ui/button";
 import styles from "./header.module.scss";
 
 const links = [
   { name: "Home", url: "/" },
+  { name: "Products", url: "/products" },
   { name: "Cart", url: "/cart" },
-  { name: "About", url: "/about" },
   { name: "Contact", url: "/contact" },
 ] as const;
 

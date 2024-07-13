@@ -1,8 +1,6 @@
-"use client";
-
 import React from "react";
 import { Success } from "../../assets";
-import useCart from "../../hooks/use-cart";
+import { useCart } from "../../hooks";
 import Button from "../ui/button";
 import CartCard from "../ui/cart-card";
 import CartSummary from "../ui/summary";
@@ -12,10 +10,8 @@ const OrderConfirmation: React.FC = () => {
   const {
     clearCart,
     totalCost,
-    removeFromCart,
-    addToCart,
+
     cart,
-    getItemCount,
   } = useCart();
 
   return (
@@ -36,15 +32,7 @@ const OrderConfirmation: React.FC = () => {
           </div>
           <div className={styles.orderConfirmation__cart}>
             {cart.map((item, index) => (
-              <CartCard
-                key={index}
-                item={item}
-                index={index}
-                removeFromCart={removeFromCart}
-                addToCart={addToCart}
-                getItemCount={getItemCount}
-                mode="order"
-              />
+              <CartCard key={index} item={item} index={index} mode="order" />
             ))}
           </div>
           <div className={styles.orderConfirmation__summary}>

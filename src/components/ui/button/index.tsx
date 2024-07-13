@@ -3,7 +3,7 @@ import { cn } from "../../../utils/functions";
 import styles from "./index.module.scss";
 
 type ButtonVariant = "primary" | "secondary" | "danger" | "unstyled";
-type ButtonSize = "small" | "medium" | "large";
+type ButtonSize = "small" | "medium" | "large" | "fit";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;

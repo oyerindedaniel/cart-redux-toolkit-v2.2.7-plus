@@ -11,12 +11,13 @@ interface CartState {
   totalItems: number;
   totalCost: number;
   addToCart: (product: Product) => void;
-  removeFromCart: (productName: string) => void;
-  getItemCount: (name: string) => number;
+  removeFromCart: (productId: string) => void;
+  removeEntireProduct: (productId: string) => void;
+  getItemCount: (id: string) => number;
   clearCart: () => void;
 }
 
-const useCart = create<CartState>()(
+export const useCart = create<CartState>()(
   persist(
     (set, get) => ({
       cart: [],
@@ -25,7 +26,7 @@ const useCart = create<CartState>()(
       addToCart: (product: Product) => {
         const { cart } = get();
         const existingProductIndex = cart.findIndex(
-          (item) => item.name === product.name
+          (item) => item.id === product.id
         );
 
         let updatedCart;
@@ -44,16 +45,16 @@ const useCart = create<CartState>()(
           0
         );
         const totalCost = updatedCart.reduce(
-          (total, item) => total + item.price * item.quantity,
+          (total, item) => total + item.current_price[0].NGN[0] * item.quantity,
           0
         );
 
         set({ cart: updatedCart, totalItems, totalCost });
       },
-      removeFromCart: (productName: string) => {
+      removeFromCart: (productId: string) => {
         const { cart } = get();
         const existingProductIndex = cart.findIndex(
-          (item) => item.name === productName
+          (item) => item.id === productId
         );
 
         if (existingProductIndex > -1) {
@@ -69,16 +70,32 @@ const useCart = create<CartState>()(
             0
           );
           const totalCost = updatedCart.reduce(
-            (total, item) => total + item.price * item.quantity,
+            (total, item) =>
+              total + item.current_price[0].NGN[0] * item.quantity,
             0
           );
 
           set({ cart: updatedCart, totalItems, totalCost });
         }
       },
+      removeEntireProduct: (productId: string) => {
+        const { cart } = get();
+        const updatedCart = cart.filter((item) => item.id !== productId);
+
+        const totalItems = updatedCart.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+        const totalCost = updatedCart.reduce(
+          (total, item) => total + item.current_price[0].NGN[0] * item.quantity,
+          0
+        );
+
+        set({ cart: updatedCart, totalItems, totalCost });
+      },
       clearCart: () => set({ cart: [], totalItems: 0, totalCost: 0 }),
-      getItemCount: (name) => {
-        const item = get().cart.find((item) => item.name === name);
+      getItemCount: (id: string) => {
+        const item = get().cart.find((item) => item.id === id);
         return item ? item.quantity : 0;
       },
     }),
@@ -88,5 +105,3 @@ const useCart = create<CartState>()(
     }
   )
 );
-
-export default useCart;

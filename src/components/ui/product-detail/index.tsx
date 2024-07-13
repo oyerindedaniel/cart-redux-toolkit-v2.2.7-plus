@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
-import useCart from "../../../hooks/use-cart";
+import { useCart } from "../../../hooks";
 import { type Product } from "../../../types";
 import Button from "../button";
 import styles from "./index.module.scss";
@@ -23,16 +23,13 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
     <div className={styles.productDetailCard}>
       <div className={styles.productDetailCard__wrapper}>
         <div className={styles.productDetailCard__content}>
-          <div className={styles.productDetailCard__image}>
-            <img src={product.image} alt={product.name} />
-          </div>
+          {product.photos && product.photos.length && (
+            <div className={styles.productDetailCard__image}>
+              <img src={product.photos[0]} alt={product.name} />
+            </div>
+          )}
           <div className={styles.productDetailCard__hr}></div>
           <div className={styles.productDetailCard__info}>
-            {product?.category && (
-              <div className={styles.productDetailCard__info__category}>
-                {product.category}
-              </div>
-            )}
             <div className={styles.productDetailCard__info__name}>
               {product.name}
             </div>
@@ -62,7 +59,7 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
                 ))}
             </div>
             <div className={styles.productDetailCard__info__price}>
-              N{product.price.toLocaleString()}
+              N{product.current_price[0].NGN[0].toLocaleString()}
             </div>
             <div className={styles.productDetailCard__info__description}>
               {product.description}

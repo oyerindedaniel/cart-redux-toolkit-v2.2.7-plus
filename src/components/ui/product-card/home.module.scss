@@ -1,0 +1,111 @@
+@import "../../../styles/variables";
+@import "../../../styles/responsive";
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeleton {
+  background-color: #ddd;
+  background-image: linear-gradient(90deg, #ddd, #eee, #ddd);
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  animation: skeleton-loading 1.5s infinite linear;
+}
+
+.productHomeSkeleton {
+  position: relative;
+  width: 38.6rem;
+  height: 45rem;
+  background-color: $secondary-color;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 1rem 0;
+  box-shadow: 0px 1px 18px rgba(0, 0, 0, 0.12);
+
+  @include media("<phone") {
+    width: 32rem;
+    margin: auto;
+  }
+
+  &__badge,
+  &__favorite,
+  &__image__container,
+  &__details,
+  &__title,
+  &__rating__container,
+  &__description,
+  &__price {
+    margin: 1rem;
+    border-radius: 10px;
+    display: block;
+  }
+
+  &__badge {
+    position: absolute;
+    top: 3.7rem;
+    left: 4.2rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &__favorite {
+    position: absolute;
+    top: 3.7rem;
+    right: 4rem;
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &__image__container {
+    width: 35.4rem;
+    height: 29.6rem;
+    margin: 1.6rem;
+    position: relative;
+    overflow: hidden;
+
+    @include media("<phone") {
+      width: 29rem;
+    }
+  }
+
+  &__details {
+    width: 35.4rem;
+    height: 10.6rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    @include media("<phone") {
+      width: 28rem;
+    }
+  }
+
+  &__title {
+    width: 60%;
+    height: 1.8rem;
+  }
+
+  &__rating__container {
+    width: 100px;
+    height: 1.6rem;
+    margin: 0.5rem 0;
+  }
+
+  &__description {
+    width: 80%;
+    height: 1.4rem;
+    margin: 0.5rem 0;
+  }
+
+  &__price {
+    width: 40%;
+    height: 1.6rem;
+  }
+}

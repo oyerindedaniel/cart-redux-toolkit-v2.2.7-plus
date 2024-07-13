@@ -1,10 +1,8 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { MasterCard, Visa } from "../../assets";
-import useCart from "../../hooks/use-cart";
+import { useCart } from "../../hooks";
 import CartCard from "../ui/cart-card";
 import CartSummary from "../ui/summary";
 import styles from "./index.module.scss";
@@ -21,15 +19,7 @@ const inputs = [
 const Checkout: React.FC = () => {
   const navigate = useNavigate();
 
-  const {
-    cart,
-    removeFromCart,
-    addToCart,
-    getItemCount,
-    totalItems,
-    clearCart,
-    totalCost,
-  } = useCart();
+  const { cart, totalItems, clearCart, totalCost } = useCart();
 
   useEffect(() => {
     if (!totalItems) {
@@ -50,20 +40,11 @@ const Checkout: React.FC = () => {
           <div className={styles.checkout__subheader}>
             <h4>Order Summary</h4>
           </div>
-          <>
-            <div className={styles.checkout__list}>
-              {cart.map((item, index) => (
-                <CartCard
-                  key={index}
-                  item={item}
-                  index={index}
-                  removeFromCart={removeFromCart}
-                  addToCart={addToCart}
-                  getItemCount={getItemCount}
-                />
-              ))}
-            </div>
-          </>
+          <div className={styles.checkout__list}>
+            {cart.map((item, index) => (
+              <CartCard key={index} item={item} index={index} />
+            ))}
+          </div>
           <div className={styles.checkout__paymentMethod}>
             <h4>Payment method</h4>
             <div>

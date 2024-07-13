@@ -2,21 +2,13 @@
 
 import { ArrowRight } from "lucide-react";
 import React from "react";
-import useCart from "../../hooks/use-cart";
+import { useCart } from "../../hooks";
 import CartCard from "../ui/cart-card";
 import CartSummary from "../ui/summary";
 import styles from "./index.module.scss";
 
 const CartPage: React.FC = () => {
-  const {
-    cart,
-    removeFromCart,
-    addToCart,
-    getItemCount,
-    clearCart,
-    totalItems,
-    totalCost,
-  } = useCart();
+  const { cart, clearCart, totalItems, totalCost } = useCart();
 
   return (
     <div className={styles.cartPage}>
@@ -41,14 +33,7 @@ const CartPage: React.FC = () => {
             <>
               <div className={styles.cartPage__list}>
                 {cart.map((item, index) => (
-                  <CartCard
-                    key={index}
-                    item={item}
-                    index={index}
-                    removeFromCart={removeFromCart}
-                    addToCart={addToCart}
-                    getItemCount={getItemCount}
-                  />
+                  <CartCard key={index} item={item} index={index} />
                 ))}
               </div>
 
