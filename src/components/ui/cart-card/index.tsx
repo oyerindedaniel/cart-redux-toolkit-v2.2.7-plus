@@ -11,16 +11,17 @@ interface CartCardProps {
 }
 
 const CartCard: React.FC<CartCardProps> = ({ item, index, mode }) => {
-  const { removeFromCart, addToCart, getItemCount } = useCart();
+  const { removeFromCart, addToCart, getItemCount, removeEntireProduct } =
+    useCart();
 
   return (
     <div className={styles.cartCard}>
       <div key={index} className={styles.cartCard__item}>
-        {item.photos && item.parent?.length && (
-          <div className={styles.cartCard__item__image}>
+        <div className={styles.cartCard__item__image}>
+          {item.photos && item.parent?.length && (
             <img src={item.photos[0]} alt={item.name} />
-          </div>
-        )}
+          )}
+        </div>
         <div className={styles.cartCard__item__details}>
           <div>
             <h3 className={styles.name}>{item.name}</h3>
@@ -35,9 +36,7 @@ const CartCard: React.FC<CartCardProps> = ({ item, index, mode }) => {
               >
                 <CircleMinus />
               </Button>
-              <span className={styles.itemCount}>
-                {getItemCount(item.name)}
-              </span>
+              <span className={styles.itemCount}>{getItemCount(item.id)}</span>
               <Button
                 variant="unstyled"
                 onClick={() => addToCart(item)}
@@ -57,7 +56,7 @@ const CartCard: React.FC<CartCardProps> = ({ item, index, mode }) => {
                 leftElement={
                   <Trash2 size="2.4rem" style={{ marginRight: "1.6rem" }} />
                 }
-                onClick={() => removeFromCart(item.name)}
+                onClick={() => removeEntireProduct(item.id)}
                 className={styles.removeButton}
               >
                 Delete
