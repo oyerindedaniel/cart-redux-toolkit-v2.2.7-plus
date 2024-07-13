@@ -1,18 +1,4 @@
-import {
-  Item1,
-  Item10,
-  Item11,
-  Item12,
-  Item2,
-  Item3,
-  Item4,
-  Item5,
-  Item6,
-  Item7,
-  Item8,
-  Item9,
-} from "./assets";
-import { Product } from "./types";
+import { Item1, Item2, Item3 } from "./assets";
 
 export const sofas = [
   {
