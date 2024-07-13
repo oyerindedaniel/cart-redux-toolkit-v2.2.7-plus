@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { flushSync } from "react-dom";
 import { useCart } from "../../../hooks";
-import { type Product } from "../../../types";
+import { Product } from "../../../types";
 import Button from "../button";
 import styles from "./index.module.scss";
 
@@ -9,6 +9,7 @@ type ProductDetailProps = Product;
 
 const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
   const [isAdded, setIsAdded] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { addToCart } = useCart();
 
   useEffect(() => {
@@ -19,15 +20,50 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
     }
   }, [isAdded]);
 
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === product.photos.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? product.photos.length - 1 : prevIndex - 1
+    );
+  };
+
   return (
     <div className={styles.productDetailCard}>
       <div className={styles.productDetailCard__wrapper}>
         <div className={styles.productDetailCard__content}>
-          {product.photos && product.photos.length && (
-            <div className={styles.productDetailCard__image}>
-              <img src={product.photos[0]} alt={product.name} />
-            </div>
-          )}
+          <div className={styles.productDetailCard__image}>
+            {product.photos && product.photos.length > 0 && (
+              <>
+                <img
+                  src={product.photos[currentImageIndex]}
+                  alt={product.name}
+                />
+                {product.photos.length > 1 && (
+                  <>
+                    <Button
+                      variant="unstyled"
+                      className={styles.productDetailCard__galleryButton}
+                      onClick={handlePrevImage}
+                    >
+                      &lt;
+                    </Button>
+                    <Button
+                      variant="unstyled"
+                      className={styles.productDetailCard__galleryButton}
+                      onClick={handleNextImage}
+                    >
+                      &gt;
+                    </Button>
+                  </>
+                )}
+              </>
+            )}
+          </div>
           <div className={styles.productDetailCard__hr}></div>
           <div className={styles.productDetailCard__info}>
             <div className={styles.productDetailCard__info__name}>

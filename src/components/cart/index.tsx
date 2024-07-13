@@ -1,7 +1,7 @@
-"use client";
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 
 import { ArrowRight } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { useCart } from "../../hooks";
 import CartCard from "../ui/cart-card";
 import CartSummary from "../ui/summary";

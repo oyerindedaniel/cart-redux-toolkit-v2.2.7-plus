@@ -15,7 +15,7 @@ const Products: React.FC = () => {
     size: 10,
   });
 
-  const totalPages = 4;
+  const totalPages = 3;
   const pageNumbers = generatePageNumbers(totalPages);
   const { items } = data ?? {};
 
