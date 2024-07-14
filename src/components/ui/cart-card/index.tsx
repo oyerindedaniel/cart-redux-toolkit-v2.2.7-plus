@@ -31,23 +31,27 @@ const CartCard: React.FC<CartCardProps> = ({ item, index, mode }) => {
             <p className={styles.description}>{item.description}</p>
             {/* <p className={styles.quantity}>{`Qty: ${item.quantity}`}</p> */}
             {/* Uncomment the below block to enable add/remove functionality */}
-            <div className={styles.actions}>
-              <Button
-                variant="unstyled"
-                onClick={() => removeFromCart(item.name)}
-                className={styles.removeButton}
-              >
-                <CircleMinus />
-              </Button>
-              <span className={styles.itemCount}>{getItemCount(item.id)}</span>
-              <Button
-                variant="unstyled"
-                onClick={() => addToCart(item)}
-                className={styles.addButton}
-              >
-                <CirclePlus />
-              </Button>
-            </div>
+            {mode !== "order" && (
+              <div className={styles.actions}>
+                <Button
+                  variant="unstyled"
+                  onClick={() => removeFromCart(item.name)}
+                  className={styles.removeButton}
+                >
+                  <CircleMinus size="2.4rem" />
+                </Button>
+                <span className={styles.itemCount}>
+                  {getItemCount(item.id)}
+                </span>
+                <Button
+                  variant="unstyled"
+                  onClick={() => addToCart(item)}
+                  className={styles.addButton}
+                >
+                  <CirclePlus size="2.4rem" />
+                </Button>
+              </div>
+            )}
           </div>
           <div>
             <p
