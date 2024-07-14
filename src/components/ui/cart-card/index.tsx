@@ -35,7 +35,7 @@ const CartCard: React.FC<CartCardProps> = ({ item, index, mode }) => {
               <div className={styles.actions}>
                 <Button
                   variant="unstyled"
-                  onClick={() => removeFromCart(item.name)}
+                  onClick={() => removeFromCart(item.id)}
                   className={styles.removeButton}
                 >
                   <CircleMinus size="2.4rem" />
