@@ -22,14 +22,15 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
   }, [isAdded]);
 
   const handleNextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === product.photos.length - 1 ? 0 : prevIndex + 1
+    setCurrentImageIndex(
+      (prevIndex) => (prevIndex + 1) % product.photos.length
     );
   };
 
   const handlePrevImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? product.photos.length - 1 : prevIndex - 1
+    setCurrentImageIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + product.photos.length) % product.photos.length
     );
   };
 
@@ -104,10 +105,7 @@ const ProductDetailCard: React.FC<ProductDetailProps> = (product) => {
             <div className={styles.productDetailCard__info__added}>
               <Button
                 className={styles.productDetailCard__info__button}
-                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
-                  event.preventDefault();
-                  event.stopPropagation();
-
+                onClick={() => {
                   flushSync(() => setIsAdded(true));
                   addToCart(product);
                 }}

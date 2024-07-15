@@ -29,8 +29,6 @@ const Home = () => {
 
   const isNew = true;
 
-  console.log(items);
-
   return (
     <>
       {selectedProduct && (

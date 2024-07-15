@@ -1,5 +1,5 @@
 import { a, useSpring, useTransition } from "@react-spring/web";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Button from "../button";
 import styles from "./index.module.scss";
 
@@ -12,18 +12,12 @@ interface ModalProps {
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // const animation = useSpring({
-  //   config: {
-  //     duration: 250,
-  //   },
-  //   opacity: isOpen ? 1 : 0,
-  //   transform: isOpen ? `translateY(0%)` : `translateY(-100%)`,
-  // });
-
   const openAnimationSpring = useSpring({
-    scale: isOpen ? 1 : 0.95,
-    y: isOpen ? 0 : 16,
+    scale: isOpen ? 1 : 0.98,
     opacity: isOpen ? 1 : 0,
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
     config: {
       tension: 300,
       duration: 200,
@@ -35,14 +29,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     enter: { opacity: 1 },
     leave: { opacity: 0 },
     config: {
-      duration: 200,
+      // duration: 150,
     },
   });
 
   const handleClose = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    e.preventDefault();
-    e.stopPropagation();
-
     if (modalRef.current === e.target) {
       onClose();
     }
@@ -54,7 +45,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       document.addEventListener("keydown", handleEscKey, false);
       document.body.style.overflow = "hidden";
@@ -73,35 +64,33 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
             className={styles.modalOverlay}
             ref={modalRef}
             onClick={handleClose}
-            aria-modal="true"
-            aria-labelledby="modalTitle"
-            role="dialog"
             style={style}
-          >
-            <a.div style={openAnimationSpring} className={styles.modal}>
-              <div className={styles.modal__content}>
-                <Button className={styles.modal__closeButton} onClick={onClose}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className="lucide lucide-x"
-                  >
-                    <path d="M18 6 6 18" />
-                    <path d="m6 6 12 12" />
-                  </svg>
-                </Button>
-                {children}
-              </div>
-            </a.div>
-          </a.div>
+          />
         ) : null
+      )}
+      {isOpen && (
+        <a.div style={openAnimationSpring} className={styles.modal}>
+          <div className={styles.modal__content}>
+            <Button className={styles.modal__closeButton} onClick={onClose}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                className="lucide lucide-x"
+              >
+                <path d="M18 6 6 18" />
+                <path d="m6 6 12 12" />
+              </svg>
+            </Button>
+            {children}
+          </div>
+        </a.div>
       )}
     </>
   );
