@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React, { ReactNode, useEffect } from "react";
+import React, { useEffect } from "react";
+import { Outlet } from "react-router";
 import { useCart } from "../../hooks";
 import Footer from "./footer";
 import Header from "./header";
 
-interface LayoutProps {
-  children: ReactNode;
-}
+interface LayoutProps {}
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = () => {
   const { cart } = useCart();
 
   useEffect(() => {
@@ -21,7 +20,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div>
       <Header />
-      <main style={{ display: "block", position: "static" }}>{children}</main>
+      <main style={{ display: "block", position: "static" }}>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
